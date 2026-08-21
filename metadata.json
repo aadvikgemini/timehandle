@@ -1,0 +1,6 @@
+{
+  "name": "Smart Student Productivity Dashboard",
+  "description": "An interactive all-in-one productivity dashboard for students to manage tasks, deadlines, study sessions, notes, daily goals, and productivity statistics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

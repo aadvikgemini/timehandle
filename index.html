@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Student Productivity Dashboard</title>
+    <meta name="description" content="All-in-one student productivity manager for tasks, study sessions, notes, goals, and streaks." />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Desktop / Mobile Sidebar Navigation -->
+      <aside class="sidebar" id="sidebar">
+        <div>
+          <div class="sidebar-header">
+            <div class="app-logo-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+                <path d="M6 6h10"></path>
+                <path d="M6 10h10"></path>
+                <path d="M6 14h6"></path>
+              </svg>
+            </div>
+            <div class="app-brand">
+              <span class="app-title">StudyPulse</span>
+              <span class="app-tagline">Student Workspace</span>
+            </div>
+          </div>
+
+          <nav class="nav-menu">
+            <a href="#dashboard" class="nav-link active" data-nav="dashboard" id="nav-dashboard">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+              </svg>
+              <span>Dashboard</span>
+            </a>
+            <a href="#tasks" class="nav-link" data-nav="tasks" id="nav-tasks">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"></path>
+                <path d="M7 7h.01"></path>
+              </svg>
+              <span>Tasks</span>
+              <span class="nav-badge" id="nav-task-count">0</span>
+            </a>
+            <a href="#timer" class="nav-link" data-nav="timer" id="nav-timer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Study Timer</span>
+            </a>
+            <a href="#notes" class="nav-link" data-nav="notes" id="nav-notes">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" x2="8" y1="13" y2="13"></line>
+                <line x1="16" x2="8" y1="17" y2="17"></line>
+                <line x1="10" x2="8" y1="9" y2="9"></line>
+              </svg>
+              <span>Notes</span>
+            </a>
+            <a href="#analytics" class="nav-link" data-nav="analytics" id="nav-analytics">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"></path>
+                <path d="m19 9-5 5-4-4-3 3"></path>
+              </svg>
+              <span>Analytics</span>
+            </a>
+            <a href="#settings" class="nav-link" data-nav="settings" id="nav-settings">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <span>Settings</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="quick-streak-pill" id="sidebar-streak-pill">
+            <span>🔥</span>
+            <span id="sidebar-streak-text">0 day streak</span>
+          </div>
+          <div class="user-mini-profile">
+            <div class="user-info">
+              <div class="user-avatar">ST</div>
+              <span class="user-name">Student Space</span>
+            </div>
+            <button class="btn-icon" id="btn-theme-toggle-sidebar" title="Toggle Theme" aria-label="Toggle Theme">
+              <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <!-- Top Application Header -->
+        <header class="top-header">
+          <div class="header-left">
+            <button class="mobile-menu-btn" id="btn-mobile-menu" aria-label="Open Navigation">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+            <div class="header-greeting">
+              <h2 id="live-greeting">Good day 👋</h2>
+              <p id="live-subgreeting">Ready to make today productive?</p>
+            </div>
+          </div>
+
+          <div class="header-right">
+            <div class="header-time-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span id="live-datetime">Aug 21, 2026 • 12:00:00 PM</span>
+            </div>
+
+            <button class="btn-icon" id="btn-theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+              <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </svg>
+            </button>
+
+            <button class="btn btn-primary btn-sm" id="btn-quick-new-task">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" x2="12" y1="5" y2="19"></line>
+                <line x1="5" x2="19" y1="12" y2="12"></line>
+              </svg>
+              <span>New Task</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Dynamic Content Scrollable Area -->
+        <main class="content-area" id="main-content">
+          <!-- ================= SECTION 1: DASHBOARD ================= -->
+          <section class="view-section active" id="view-dashboard">
+            <!-- Motivational Quote Banner -->
+            <div class="quote-banner">
+              <div class="quote-content">
+                <span class="quote-icon">“</span>
+                <div>
+                  <div class="quote-text" id="daily-quote-text">Continuous learning is the minimum requirement for success in any field.</div>
+                  <div class="quote-author" id="daily-quote-author">— Brian Tracy</div>
+                </div>
+              </div>
+              <button class="quote-refresh-btn" id="btn-refresh-quote" title="Get new quote" aria-label="Refresh Quote">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                  <path d="M3 3v5h5"></path>
+                  <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
+                  <path d="M16 21h5v-5"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Main Statistics Grid -->
+            <div class="stats-grid">
+              <!-- Total Tasks -->
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span class="stat-label">Total Tasks</span>
+                  <div class="stat-icon primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                      <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="stat-value" id="stat-total-tasks">0</div>
+                <div class="stat-subtext" id="stat-pending-tasks-subtext">0 pending tasks</div>
+              </div>
+
+              <!-- Completed Tasks -->
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span class="stat-label">Completed</span>
+                  <div class="stat-icon success">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="stat-value" id="stat-completed-tasks">0</div>
+                <div class="stat-subtext" id="stat-completion-rate-subtext">0% completion rate</div>
+              </div>
+
+              <!-- Study Time -->
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span class="stat-label">Total Study Time</span>
+                  <div class="stat-icon purple">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="stat-value" id="stat-study-time">0h 00m</div>
+                <div class="stat-subtext" id="stat-today-study-subtext">0m logged today</div>
+              </div>
+
+              <!-- Current Streak -->
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span class="stat-label">Study Streak</span>
+                  <div class="stat-icon warning">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="stat-value" id="stat-streak-value">🔥 0 days</div>
+                <div class="stat-subtext" id="stat-longest-streak-subtext">Best: 0 days</div>
+              </div>
+
+              <!-- Daily Productivity Score -->
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span class="stat-label">Daily Progress</span>
+                  <div class="stat-icon info">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2v20"></path>
+                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="stat-value" id="stat-daily-productivity">0%</div>
+                <div class="stat-subtext" id="stat-productivity-rating">Based on goals & tasks</div>
+              </div>
+            </div>
+
+            <!-- Bento Dashboard Section -->
+            <div class="dashboard-grid">
+              <!-- Left Column: Priority Focus & Quick Task List -->
+              <div class="dashboard-column">
+                <!-- Priority Focus Tasks -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                      </svg>
+                      <span>Priority Focus For Today</span>
+                    </h3>
+                    <a href="#tasks" class="btn btn-secondary btn-sm" data-nav="tasks">View All Tasks</a>
+                  </div>
+                  <div class="card-body">
+                    <div class="tasks-container" id="dashboard-priority-tasks-container">
+                      <!-- Populated via JS -->
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Quick Action Buttons -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                      </svg>
+                      <span>Quick Actions</span>
+                    </h3>
+                  </div>
+                  <div class="card-body">
+                    <div class="quick-actions-row">
+                      <button class="quick-action-card" id="btn-quick-focus-session">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                        </svg>
+                        <span>Start 25m Focus</span>
+                      </button>
+
+                      <button class="quick-action-card" id="btn-quick-add-task">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M12 5v14M5 12h14"></path>
+                        </svg>
+                        <span>Add New Task</span>
+                      </button>
+
+                      <button class="quick-action-card" id="btn-quick-add-note">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                        <span>Quick Note</span>
+                      </button>
+
+                      <button class="quick-action-card" id="btn-load-demo-data-dash">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="7 10 12 15 17 10"></polyline>
+                          <line x1="12" x2="12" y1="15" y2="3"></line>
+                        </svg>
+                        <span>Load Demo Data</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Goals & Mini Pomodoro -->
+              <div class="dashboard-column">
+                <!-- Daily Goals Widget -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="6"></circle>
+                        <circle cx="12" cy="12" r="2"></circle>
+                      </svg>
+                      <span>Daily Goals</span>
+                    </h3>
+                    <a href="#settings" class="btn btn-secondary btn-sm" data-nav="settings">Edit Goals</a>
+                  </div>
+                  <div class="card-body">
+                    <!-- Study Goal -->
+                    <div class="goal-item">
+                      <div class="goal-meta">
+                        <span class="goal-title">Study Time Goal</span>
+                        <span class="goal-fraction" id="goal-study-fraction">0 / 120 mins (0%)</span>
+                      </div>
+                      <div class="progress-bar-bg">
+                        <div class="progress-bar-fill fill-purple" id="goal-study-progress-bar" style="width: 0%;"></div>
+                      </div>
+                    </div>
+
+                    <!-- Task Goal -->
+                    <div class="goal-item" style="margin-top: 1.25rem;">
+                      <div class="goal-meta">
+                        <span class="goal-title">Completed Tasks Goal</span>
+                        <span class="goal-fraction" id="goal-task-fraction">0 / 5 tasks (0%)</span>
+                      </div>
+                      <div class="progress-bar-bg">
+                        <div class="progress-bar-fill fill-success" id="goal-task-progress-bar" style="width: 0%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Recent Study Sessions Mini Card -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 8v4l3 3"></path>
+                        <circle cx="12" cy="12" r="10"></circle>
+                      </svg>
+                      <span>Recent Activity</span>
+                    </h3>
+                    <a href="#analytics" class="btn btn-secondary btn-sm" data-nav="analytics">Analytics</a>
+                  </div>
+                  <div class="card-body">
+                    <div id="dashboard-recent-sessions" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                      <!-- Populated via JS -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================= SECTION 2: TASK MANAGER ================= -->
+          <section class="view-section" id="view-tasks">
+            <div class="section-header">
+              <div class="section-title-group">
+                <h1>Task Management</h1>
+                <p>Organize assignments, prioritize deadlines, and track your academic workflow.</p>
+              </div>
+              <div class="section-actions">
+                <button class="btn btn-primary" id="btn-open-task-modal">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" x2="12" y1="5" y2="19"></line>
+                    <line x1="5" x2="19" y1="12" y2="12"></line>
+                  </svg>
+                  <span>Add New Task</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Tasks Search and Multi-Filters Toolbar -->
+            <div class="tasks-toolbar">
+              <div class="search-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+                </svg>
+                <input type="text" id="tasks-search-input" placeholder="Search tasks by title, category, or notes... (Press /)" />
+              </div>
+
+              <div class="filter-group">
+                <!-- Status Filter -->
+                <select class="custom-select" id="filter-task-status" aria-label="Filter by status">
+                  <option value="all">Status: All</option>
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+
+                <!-- Priority Filter -->
+                <select class="custom-select" id="filter-task-priority" aria-label="Filter by priority">
+                  <option value="all">Priority: All</option>
+                  <option value="high">High Priority</option>
+                  <option value="medium">Medium Priority</option>
+                  <option value="low">Low Priority</option>
+                </select>
+
+                <!-- Deadline Filter -->
+                <select class="custom-select" id="filter-task-deadline" aria-label="Filter by deadline">
+                  <option value="all">Deadline: All</option>
+                  <option value="today">Due Today</option>
+                  <option value="tomorrow">Due Tomorrow</option>
+                  <option value="overdue">Overdue</option>
+                  <option value="upcoming">Upcoming</option>
+                </select>
+
+                <!-- Category Filter -->
+                <select class="custom-select" id="filter-task-category" aria-label="Filter by category">
+                  <option value="all">Category: All</option>
+                </select>
+
+                <!-- Sort Filter -->
+                <select class="custom-select" id="filter-task-sort" aria-label="Sort tasks">
+                  <option value="default">Sort: Custom / Order</option>
+                  <option value="deadline">Sort: Deadline (Soonest)</option>
+                  <option value="priority">Sort: Priority (High to Low)</option>
+                  <option value="title">Sort: Title (A-Z)</option>
+                  <option value="newest">Sort: Date Added</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Task List Container -->
+            <div class="tasks-container" id="tasks-list-container">
+              <!-- Rendered via JS -->
+            </div>
+          </section>
+
+          <!-- ================= SECTION 3: STUDY TIMER ================= -->
+          <section class="view-section" id="view-timer">
+            <div class="section-header">
+              <div class="section-title-group">
+                <h1>Study Timer & Focus</h1>
+                <p>Maximize retention and stamina with structured Pomodoro and customized study sessions.</p>
+              </div>
+              <div class="section-actions">
+                <button class="btn btn-secondary btn-sm" id="btn-open-custom-timer">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                  <span>Custom Duration</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="timer-container">
+              <!-- Mode Tabs -->
+              <div class="timer-mode-tabs">
+                <button class="timer-tab active" data-mode="focus" id="tab-mode-focus">Focus (25m)</button>
+                <button class="timer-tab" data-mode="shortBreak" id="tab-mode-short">Short Break (5m)</button>
+                <button class="timer-tab" data-mode="longBreak" id="tab-mode-long">Long Break (15m)</button>
+              </div>
+
+              <!-- Visual Circular Progress Dial -->
+              <div class="timer-dial-wrapper">
+                <svg class="timer-svg" viewBox="0 0 300 300">
+                  <circle class="timer-svg-bg" cx="150" cy="150" r="130"></circle>
+                  <circle class="timer-svg-progress" id="timer-progress-ring" cx="150" cy="150" r="130"></circle>
+                </svg>
+                <div class="timer-display-inner">
+                  <span class="timer-mode-label" id="timer-mode-display">Focus Session</span>
+                  <div class="timer-digits" id="timer-digits-display">25:00</div>
+                  <span class="timer-status-text" id="timer-status-subtext">Ready to focus</span>
+                </div>
+              </div>
+
+              <!-- Main Timer Controls -->
+              <div class="timer-controls">
+                <button class="btn btn-secondary btn-icon" id="btn-timer-reset" title="Reset Timer" aria-label="Reset Timer">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                    <path d="M3 3v5h5"></path>
+                  </svg>
+                </button>
+
+                <button class="btn-timer-main" id="btn-timer-toggle" title="Start Focus Session" aria-label="Start Focus Session">
+                  <svg id="timer-icon-play" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  <svg id="timer-icon-pause" style="display: none;" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                  </svg>
+                </button>
+
+                <button class="btn btn-secondary btn-icon" id="btn-timer-skip" title="Skip Session" aria-label="Skip Session">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                    <line x1="19" x2="19" y1="5" y2="19"></line>
+                  </svg>
+                </button>
+
+                <button class="btn btn-secondary btn-sm" id="btn-timer-add5" title="Add 5 Minutes">+5m</button>
+              </div>
+
+              <!-- Session Statistics Overview -->
+              <div class="timer-session-stats">
+                <div class="session-stat-box">
+                  <h4>Completed Today</h4>
+                  <p id="timer-sessions-completed">0</p>
+                </div>
+                <div class="session-stat-box">
+                  <h4>Study Time Today</h4>
+                  <p id="timer-today-time">0m</p>
+                </div>
+                <div class="session-stat-box">
+                  <h4>Focus Target</h4>
+                  <p id="timer-focus-target">120m</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================= SECTION 4: NOTES SYSTEM ================= -->
+          <section class="view-section" id="view-notes">
+            <div class="section-header">
+              <div class="section-title-group">
+                <h1>Academic Notes & Brainstorming</h1>
+                <p>Store study summaries, key formulas, lecture notes, and quick ideas.</p>
+              </div>
+              <div class="section-actions">
+                <button class="btn btn-primary" id="btn-open-note-modal">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" x2="12" y1="5" y2="19"></line>
+                    <line x1="5" x2="19" y1="12" y2="12"></line>
+                  </svg>
+                  <span>Create Note</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="notes-toolbar">
+              <div class="search-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+                </svg>
+                <input type="text" id="notes-search-input" placeholder="Search notes by title or content..." />
+              </div>
+
+              <div class="filter-group">
+                <select class="custom-select" id="filter-note-category" aria-label="Filter note by category">
+                  <option value="all">Category: All</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Notes Grid View -->
+            <div class="notes-grid" id="notes-grid-container">
+              <!-- Rendered via JS -->
+            </div>
+          </section>
+
+          <!-- ================= SECTION 5: ANALYTICS ================= -->
+          <section class="view-section" id="view-analytics">
+            <div class="section-header">
+              <div class="section-title-group">
+                <h1>Productivity Analytics & Trends</h1>
+                <p>Track your academic consistency, daily study duration, and task completion metrics.</p>
+              </div>
+            </div>
+
+            <!-- Analytics Metric Cards -->
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span class="stat-label">Productivity Score</span>
+                  <div class="stat-icon info">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="stat-value" id="analytics-score-val">0%</div>
+                <div class="stat-subtext">Calculated from task & study goals</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span class="stat-label">Total Study Time</span>
+                  <div class="stat-icon purple">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="stat-value" id="analytics-study-total">0h 00m</div>
+                <div class="stat-subtext" id="analytics-avg-daily">Avg 0m / day</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span class="stat-label">Streak Status</span>
+                  <div class="stat-icon warning">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="stat-value" id="analytics-current-streak">0 days</div>
+                <div class="stat-subtext" id="analytics-longest-streak">Record: 0 days</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span class="stat-label">Task Completion</span>
+                  <div class="stat-icon success">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="stat-value" id="analytics-task-rate">0%</div>
+                <div class="stat-subtext" id="analytics-tasks-ratio">0 of 0 tasks completed</div>
+              </div>
+            </div>
+
+            <!-- Charts & Distribution Bento Grid -->
+            <div class="analytics-grid">
+              <!-- Weekly Activity Bar Chart -->
+              <div class="chart-card">
+                <div class="chart-header">
+                  <div>
+                    <h3 class="card-title">Weekly Productivity Chart</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Daily performance across Monday to Sunday</p>
+                  </div>
+                  <div class="chart-toggle-group">
+                    <button class="chart-toggle-btn active" data-chart-metric="study">Study Minutes</button>
+                    <button class="chart-toggle-btn" data-chart-metric="tasks">Tasks Done</button>
+                    <button class="chart-toggle-btn" data-chart-metric="score">Score %</button>
+                  </div>
+                </div>
+
+                <!-- Pure Vanilla JS Interactive Bar Chart -->
+                <div class="weekly-chart-wrapper" id="weekly-chart-container">
+                  <!-- Generated via JS -->
+                </div>
+              </div>
+
+              <!-- Subject / Category Breakdown -->
+              <div class="chart-card">
+                <div class="chart-header">
+                  <h3 class="card-title">Category Distribution</h3>
+                </div>
+                <div class="category-stat-list" id="analytics-category-list">
+                  <!-- Populated via JS -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================= SECTION 6: SETTINGS ================= -->
+          <section class="view-section" id="view-settings">
+            <div class="section-header">
+              <div class="section-title-group">
+                <h1>Settings & Preferences</h1>
+                <p>Customize your productivity goals, appearance, data backups, and key shortcuts.</p>
+              </div>
+            </div>
+
+            <div class="settings-grid">
+              <!-- Appearance -->
+              <div class="settings-card">
+                <h3 class="settings-card-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                  </svg>
+                  <span>Appearance & Theme</span>
+                </h3>
+
+                <div class="settings-row">
+                  <div class="settings-label-group">
+                    <span class="settings-label">Application Theme</span>
+                    <span class="settings-desc">Switch between clean light and dark modes</span>
+                  </div>
+                  <button class="btn btn-secondary btn-sm" id="btn-settings-toggle-theme">
+                    Toggle Mode
+                  </button>
+                </div>
+              </div>
+
+              <!-- Productivity Targets -->
+              <div class="settings-card">
+                <h3 class="settings-card-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="6"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                  </svg>
+                  <span>Daily Productivity Goals</span>
+                </h3>
+
+                <div class="settings-row">
+                  <div class="settings-label-group">
+                    <span class="settings-label">Daily Study Goal (Minutes)</span>
+                    <span class="settings-desc">Target minutes to study each day</span>
+                  </div>
+                  <input type="number" class="settings-input" id="setting-study-goal" min="15" max="720" step="15" value="120" />
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-label-group">
+                    <span class="settings-label">Daily Task Goal (Tasks)</span>
+                    <span class="settings-desc">Number of tasks aimed to finish daily</span>
+                  </div>
+                  <input type="number" class="settings-input" id="setting-task-goal" min="1" max="50" step="1" value="5" />
+                </div>
+
+                <div class="settings-row">
+                  <div></div>
+                  <button class="btn btn-primary btn-sm" id="btn-save-goals-settings">Save Goals</button>
+                </div>
+              </div>
+
+              <!-- Data Management -->
+              <div class="settings-card">
+                <h3 class="settings-card-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" x2="12" y1="15" y2="3"></line>
+                  </svg>
+                  <span>Backup & Data Storage</span>
+                </h3>
+
+                <div class="settings-row">
+                  <div class="settings-label-group">
+                    <span class="settings-label">Export Data Backup</span>
+                    <span class="settings-desc">Save your tasks, notes, sessions, and stats as JSON</span>
+                  </div>
+                  <button class="btn btn-secondary btn-sm" id="btn-export-data">Export JSON</button>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-label-group">
+                    <span class="settings-label">Import Data Backup</span>
+                    <span class="settings-desc">Restore your saved workspace backup file</span>
+                  </div>
+                  <div>
+                    <input type="file" id="import-file-input" accept=".json" style="display: none;" />
+                    <button class="btn btn-secondary btn-sm" id="btn-trigger-import">Import JSON</button>
+                  </div>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-label-group">
+                    <span class="settings-label">Sample Academic Data</span>
+                    <span class="settings-desc">Load realistic coursework data to test features</span>
+                  </div>
+                  <button class="btn btn-secondary btn-sm" id="btn-load-demo-settings">Load Demo Data</button>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-label-group">
+                    <span class="settings-label" style="color: var(--danger);">Reset All Data</span>
+                    <span class="settings-desc">Wipe all tasks, notes, sessions, and streaks</span>
+                  </div>
+                  <button class="btn btn-danger btn-sm" id="btn-clear-all-data">Clear Workspace</button>
+                </div>
+              </div>
+
+              <!-- Keyboard Shortcuts -->
+              <div class="settings-card">
+                <h3 class="settings-card-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h8M6 16h.01M18 16h.01"></path>
+                  </svg>
+                  <span>Keyboard Shortcuts</span>
+                </h3>
+
+                <div class="shortcut-row">
+                  <span>Create new task</span>
+                  <kbd class="kbd">N</kbd>
+                </div>
+                <div class="shortcut-row">
+                  <span>Open study timer</span>
+                  <kbd class="kbd">T</kbd>
+                </div>
+                <div class="shortcut-row">
+                  <span>Create new note</span>
+                  <kbd class="kbd">M</kbd>
+                </div>
+                <div class="shortcut-row">
+                  <span>Search tasks</span>
+                  <kbd class="kbd">/</kbd>
+                </div>
+                <div class="shortcut-row">
+                  <span>Go to Dashboard</span>
+                  <kbd class="kbd">D</kbd>
+                </div>
+                <div class="shortcut-row">
+                  <span>Go to Analytics</span>
+                  <kbd class="kbd">A</kbd>
+                </div>
+                <div class="shortcut-row">
+                  <span>Close open modal</span>
+                  <kbd class="kbd">Esc</kbd>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- Mobile Bottom Navigation Bar -->
+        <nav class="mobile-bottom-nav">
+          <a href="#dashboard" class="mobile-nav-item active" data-nav="dashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+              <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+              <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+              <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+            </svg>
+            <span>Dash</span>
+          </a>
+          <a href="#tasks" class="mobile-nav-item" data-nav="tasks">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"></path>
+            </svg>
+            <span>Tasks</span>
+          </a>
+          <a href="#timer" class="mobile-nav-item" data-nav="timer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Timer</span>
+          </a>
+          <a href="#notes" class="mobile-nav-item" data-nav="notes">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+            </svg>
+            <span>Notes</span>
+          </a>
+          <a href="#analytics" class="mobile-nav-item" data-nav="analytics">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18"></path>
+              <path d="m19 9-5 5-4-4-3 3"></path>
+            </svg>
+            <span>Stats</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ================= MODALS & DIALOGS ================= -->
+
+    <!-- Modal 1: Add / Edit Task Modal -->
+    <div class="modal-overlay" id="task-modal" role="dialog" aria-modal="true" aria-labelledby="task-modal-title">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title" id="task-modal-title">Add New Task</h3>
+          <button class="modal-close-btn" data-close-modal="task-modal" aria-label="Close dialog">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" x2="6" y1="6" y2="18"></line>
+              <line x1="6" x2="18" y1="6" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <form id="task-form">
+          <input type="hidden" id="task-id-input" />
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label" for="task-title-input">Task Title *</label>
+              <input type="text" class="form-input" id="task-title-input" placeholder="e.g. Complete Calculus Problem Set 4" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="task-desc-input">Description / Notes (Optional)</label>
+              <textarea class="form-textarea" id="task-desc-input" placeholder="e.g. Review chapter 4 formulas on derivatives before starting questions 1-12..."></textarea>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="task-priority-input">Priority</label>
+                <select class="form-select" id="task-priority-input">
+                  <option value="medium">Medium Priority</option>
+                  <option value="high">High Priority</option>
+                  <option value="low">Low Priority</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="task-deadline-input">Deadline Date</label>
+                <input type="date" class="form-input" id="task-deadline-input" />
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="task-category-input">Category / Course</label>
+                <input type="text" class="form-input" id="task-category-input" placeholder="e.g. Math, CS, Biology, General" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="task-estimate-input">Estimated Study Time (mins)</label>
+                <input type="number" class="form-input" id="task-estimate-input" min="5" max="600" step="5" placeholder="e.g. 45" />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-close-modal="task-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-save-task">Save Task</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal 2: Add / Edit Note Modal -->
+    <div class="modal-overlay" id="note-modal" role="dialog" aria-modal="true" aria-labelledby="note-modal-title">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title" id="note-modal-title">Create New Note</h3>
+          <button class="modal-close-btn" data-close-modal="note-modal" aria-label="Close dialog">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" x2="6" y1="6" y2="18"></line>
+              <line x1="6" x2="18" y1="6" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <form id="note-form">
+          <input type="hidden" id="note-id-input" />
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label" for="note-title-input">Note Title *</label>
+              <input type="text" class="form-input" id="note-title-input" placeholder="e.g. Python List Comprehensions Summary" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="note-category-input">Category / Tag</label>
+              <input type="text" class="form-input" id="note-category-input" placeholder="e.g. Computer Science, Exam Prep, Chemistry" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="note-content-input">Note Content *</label>
+              <textarea class="form-textarea" id="note-content-input" style="min-height: 160px;" placeholder="Write your key points, formulas, or reminders here..." required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-close-modal="note-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-save-note">Save Note</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal 3: Custom Timer Modal -->
+    <div class="modal-overlay" id="custom-timer-modal" role="dialog" aria-modal="true" aria-labelledby="custom-timer-title">
+      <div class="modal-dialog" style="max-width: 420px;">
+        <div class="modal-header">
+          <h3 class="modal-title" id="custom-timer-title">Set Custom Session</h3>
+          <button class="modal-close-btn" data-close-modal="custom-timer-modal" aria-label="Close dialog">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" x2="6" y1="6" y2="18"></line>
+              <line x1="6" x2="18" y1="6" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <form id="custom-timer-form">
+          <div class="modal-body">
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+              Choose custom duration for your focused study block:
+            </p>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="custom-timer-hours">Hours</label>
+                <input type="number" class="form-input" id="custom-timer-hours" min="0" max="10" value="0" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="custom-timer-minutes">Minutes</label>
+                <input type="number" class="form-input" id="custom-timer-minutes" min="1" max="59" value="45" required />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-close-modal="custom-timer-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Start Custom Session</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal 4: Generic Safe Confirmation Modal -->
+    <div class="modal-overlay" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title">
+      <div class="modal-dialog" style="max-width: 440px;">
+        <div class="modal-header">
+          <h3 class="modal-title" id="confirm-modal-title">Confirmation Required</h3>
+          <button class="modal-close-btn" data-close-modal="confirm-modal" aria-label="Close dialog">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" x2="6" y1="6" y2="18"></line>
+              <line x1="6" x2="18" y1="6" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="confirm-modal-message" style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.5;">
+            Are you sure you want to perform this action?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btn-confirm-cancel" data-close-modal="confirm-modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="btn-confirm-accept">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <!-- Application Script -->
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
